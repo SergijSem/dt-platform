@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Blocks="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks" xmlns:Requirements="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Requirements" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xsi:schemaLocation="http://www.eclipse.org/papyrus/sysml/1.6/SysML/Blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks http://www.eclipse.org/papyrus/sysml/1.6/SysML/Requirements http://www.eclipse.org/papyrus/sysml/1.6/SysML#//requirements">
+  <uml:Model xmi:id="_7Qhh4MVuEfG5EeAW0K4ErA" name="Model">
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_7WtpcMVuEfG5EeAW0K4ErA">
+      <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+    </packageImport>
+    <packageImport xmi:type="uml:PackageImport" xmi:id="_7XAkYMVuEfG5EeAW0K4ErA">
+      <importedPackage xmi:type="uml:Package" href="pathmap://SysML16_LIBRARIES/SysML-Standard-Library.uml#SysML.package_packagedElement_Libraries"/>
+    </packageImport>
+    <packagedElement xmi:type="uml:Package" xmi:id="_JOSV4MVyEfG5EeAW0K4ErA" name="Спостережувані елементи (OME)">
+      <packagedElement xmi:type="uml:Class" xmi:id="_KAOeQMV0EfG5EeAW0K4ErA" name="Збирання телеметричних даних" visibility="public"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Otiz4MVyEfG5EeAW0K4ErA" name="Зв'язок із пристроями (DCE)">
+      <packagedElement xmi:type="uml:Class" xmi:id="_NLsfQMV1EfG5EeAW0K4ErA" name="Двостороннє керування"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_UAd-sMV1EfG5EeAW0K4ErA" name="Надійність та відновлення зв'язку"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_RPGxsMVyEfG5EeAW0K4ErA" name="Цифровий двійник (DTE)">
+      <packagedElement xmi:type="uml:Class" xmi:id="_U0UdgMV1EfG5EeAW0K4ErA" name="Синхронізація стану двійника"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_WAnRgMV1EfG5EeAW0K4ErA" name="Зберігання та історія телеметрії"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_XZYbQMV1EfG5EeAW0K4ErA" name="Предиктивна аналітика та сповіщення"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_dlpJMMV1EfG5EeAW0K4ErA" name="Затримка синхронізації стану двійника"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_eoXxgMV1EfG5EeAW0K4ErA" name="Масштабованість за кількістю сигналів"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_ffzIwMV1EfG5EeAW0K4ErA" name="Пропускна здатність і обробка" visibility="protected"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_UDBDwMVyEfG5EeAW0K4ErA" name="Користувач (UE)">
+      <packagedElement xmi:type="uml:Class" xmi:id="_rvfG0MV3EfG5EeAW0K4ErA" name="Візуалізація поточного стану"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_skwh8MV3EfG5EeAW0K4ErA" name="Розподіл ролей користувачів"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_uN300MV3EfG5EeAW0K4ErA" name="Наскрізна затримка «датчик — подання»"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_vdykkMV3EfG5EeAW0K4ErA" name="Безпека і захист доступу"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PCVzoMV8EfG5EeAW0K4ErA" name="Інтерфейс користувача">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_JSoiAMWAEfG5EeAW0K4ErA" name="менеджер стану" type="_WN2_IMV8EfG5EeAW0K4ErA" association="_JSjpgMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JSpJEMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JSpwIMWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_KPUzwsWAEfG5EeAW0K4ErA" name="контролер команд" type="_XJT6wMV8EfG5EeAW0K4ErA" association="_KPTloMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KPVa0MWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KPVa0cWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_K8whgsWAEfG5EeAW0K4ErA" name="аналітичний модуль" type="_RIJpkMV8EfG5EeAW0K4ErA" association="_K8v6cMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_K8xIkMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_K8xIkcWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_RIJpkMV8EfG5EeAW0K4ErA" name="Аналітичний модуль">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_xPs4AsWAEfG5EeAW0K4ErA" name="компонент роботи з даними" type="_WhMx4MV8EfG5EeAW0K4ErA" association="_xPrp4MWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xPtfEMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xPuGIMWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_VT4qMMV8EfG5EeAW0K4ErA" name="Емулятор електроскутера">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_TLxRsMV9EfG5EeAW0K4ErA" name="datacollection" type="_W3DtIMV8EfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TL3YUMV9EfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TL3_YMV9EfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_XGHgAMWAEfG5EeAW0K4ErA" name="обробник телеметрії" type="_V1AaQMV8EfG5EeAW0K4ErA" association="_XGFq0MWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XGIHEMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XGIHEcWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_V1AaQMV8EfG5EeAW0K4ErA" name="Обробник телеметрії">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_NL-yIsWAEfG5EeAW0K4ErA" name="менеджер стану" type="_WN2_IMV8EfG5EeAW0K4ErA" association="_NL9kAMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NL_ZMMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NMAAQMWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WN2_IMV8EfG5EeAW0K4ErA" name="Менеджер стану">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_aGQ3QsWAEfG5EeAW0K4ErA" name="компонент роботи з даними" type="_WhMx4MV8EfG5EeAW0K4ErA" association="_aGPCEMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aGSscMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aGSsccWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_WhMx4MV8EfG5EeAW0K4ErA" name="Компонент роботи з даними">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_nimgksWAEfG5EeAW0K4ErA" name="аналітичний модуль" type="_RIJpkMV8EfG5EeAW0K4ErA" association="_nilScMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ninHoMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ninHocWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_oDC7MsWAEfG5EeAW0K4ErA" name="база даних" type="_W3DtIMV8EfG5EeAW0K4ErA" association="_oDBtEMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oDDiQMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oDDiQcWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_W3DtIMV8EfG5EeAW0K4ErA" name="База даних"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_XJT6wMV8EfG5EeAW0K4ErA" name="Контролер команд">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_dqgaEsWAEfG5EeAW0K4ErA" name="компонент роботи з даними" type="_WhMx4MV8EfG5EeAW0K4ErA" association="_dqek4MWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dqhBIMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dqhBIcWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_i8ZxgsWAEfG5EeAW0K4ErA" name="емулятор електроскутера" type="_VT4qMMV8EfG5EeAW0K4ErA" association="_i8ZKcMWAEfG5EeAW0K4ErA">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_i8a_oMWAEfG5EeAW0K4ErA"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i8a_ocWAEfG5EeAW0K4ErA" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_JSjpgMWAEfG5EeAW0K4ErA" memberEnd="_JSoiAMWAEfG5EeAW0K4ErA _JSpwIcWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_JSn68MWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_JSn68cWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_JSpwIcWAEfG5EeAW0K4ErA" name="інтерфейс користувача" type="_PCVzoMV8EfG5EeAW0K4ErA" association="_JSjpgMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_KPTloMWAEfG5EeAW0K4ErA" memberEnd="_KPUzwsWAEfG5EeAW0K4ErA _KPVa0sWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_KPUzwMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_KPUzwcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_KPVa0sWAEfG5EeAW0K4ErA" name="інтерфейс користувача" type="_PCVzoMV8EfG5EeAW0K4ErA" association="_KPTloMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_K8v6cMWAEfG5EeAW0K4ErA" memberEnd="_K8whgsWAEfG5EeAW0K4ErA _K8xvoMWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_K8whgMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_K8whgcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_K8xvoMWAEfG5EeAW0K4ErA" name="інтерфейс користувача" type="_PCVzoMV8EfG5EeAW0K4ErA" association="_K8v6cMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_NL9kAMWAEfG5EeAW0K4ErA" memberEnd="_NL-yIsWAEfG5EeAW0K4ErA _NMAAQcWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_NL-yIMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_NL-yIcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_NMAAQcWAEfG5EeAW0K4ErA" name="обробник телеметрії" type="_V1AaQMV8EfG5EeAW0K4ErA" association="_NL9kAMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_XGFq0MWAEfG5EeAW0K4ErA" memberEnd="_XGHgAMWAEfG5EeAW0K4ErA _XGIHEsWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_XGG48MWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_XGG48cWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_XGIHEsWAEfG5EeAW0K4ErA" name="емулятор електроскутера" type="_VT4qMMV8EfG5EeAW0K4ErA" association="_XGFq0MWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_aGPCEMWAEfG5EeAW0K4ErA" memberEnd="_aGQ3QsWAEfG5EeAW0K4ErA _aGSscsWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_aGQ3QMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_aGQ3QcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_aGSscsWAEfG5EeAW0K4ErA" name="менеджер стану" type="_WN2_IMV8EfG5EeAW0K4ErA" association="_aGPCEMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_dqek4MWAEfG5EeAW0K4ErA" memberEnd="_dqgaEsWAEfG5EeAW0K4ErA _dqhBIsWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_dqgaEMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_dqgaEcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_dqhBIsWAEfG5EeAW0K4ErA" name="контролер команд" type="_XJT6wMV8EfG5EeAW0K4ErA" association="_dqek4MWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_i8ZKcMWAEfG5EeAW0K4ErA" memberEnd="_i8ZxgsWAEfG5EeAW0K4ErA _i8a_osWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_i8ZxgMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_i8ZxgcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_i8a_osWAEfG5EeAW0K4ErA" name="контролер команд" type="_XJT6wMV8EfG5EeAW0K4ErA" association="_i8ZKcMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_nilScMWAEfG5EeAW0K4ErA" memberEnd="_nimgksWAEfG5EeAW0K4ErA _ninHosWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_nimgkMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_nimgkcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_ninHosWAEfG5EeAW0K4ErA" name="компонент роботи з даними" type="_WhMx4MV8EfG5EeAW0K4ErA" association="_nilScMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_oDBtEMWAEfG5EeAW0K4ErA" memberEnd="_oDC7MsWAEfG5EeAW0K4ErA _oDDiQsWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_oDC7MMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_oDC7McWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_oDDiQsWAEfG5EeAW0K4ErA" name="компонент роботи з даними" type="_WhMx4MV8EfG5EeAW0K4ErA" association="_oDBtEMWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_xPrp4MWAEfG5EeAW0K4ErA" memberEnd="_xPs4AsWAEfG5EeAW0K4ErA _xPuGIcWAEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xPs4AMWAEfG5EeAW0K4ErA" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xPs4AcWAEfG5EeAW0K4ErA" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_xPuGIcWAEfG5EeAW0K4ErA" name="аналітичний модуль" type="_RIJpkMV8EfG5EeAW0K4ErA" association="_xPrp4MWAEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Activity" xmi:id="_mgH9oMWFEfG5EeAW0K4ErA" name="Activity36" node="_1j--YMWFEfG5EeAW0K4ErA _UQL7EMWIEfG5EeAW0K4ErA _TQEIkMWNEfG5EeAW0K4ErA _8-a2AMWNEfG5EeAW0K4ErA _EQRTAMWOEfG5EeAW0K4ErA _FTit4MWOEfG5EeAW0K4ErA _RQd9cMWPEfG5EeAW0K4ErA _XEXOsMWPEfG5EeAW0K4ErA _GwEywMWNEfG5EeAW0K4ErA">
+      <edge xmi:type="uml:ControlFlow" xmi:id="_Gw-xsMWNEfG5EeAW0K4ErA" target="_GwEywMWNEfG5EeAW0K4ErA" source="_1j--YMWFEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_TQ0WgMWNEfG5EeAW0K4ErA" target="_TQEIkMWNEfG5EeAW0K4ErA" source="_GwEywMWNEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_8_Kc4MWNEfG5EeAW0K4ErA" target="_8-a2AMWNEfG5EeAW0K4ErA" source="_TQEIkMWNEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_EQ5lIMWOEfG5EeAW0K4ErA" name="Дані коректні" target="_EQRTAMWOEfG5EeAW0K4ErA" source="_8-a2AMWNEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_FUFgcMWOEfG5EeAW0K4ErA" name="Помилка / Аномалія" target="_FTit4MWOEfG5EeAW0K4ErA" source="_8-a2AMWNEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_ra6tkMWOEfG5EeAW0K4ErA" target="_UQL7EMWIEfG5EeAW0K4ErA" source="_FTit4MWOEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_RRG2oMWPEfG5EeAW0K4ErA" target="_RQd9cMWPEfG5EeAW0K4ErA" source="_EQRTAMWOEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_XE9EkMWPEfG5EeAW0K4ErA" target="_XEXOsMWPEfG5EeAW0K4ErA" source="_RQd9cMWPEfG5EeAW0K4ErA"/>
+      <edge xmi:type="uml:ControlFlow" xmi:id="_9y58EMWPEfG5EeAW0K4ErA" target="_UQL7EMWIEfG5EeAW0K4ErA" source="_XEXOsMWPEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:InitialNode" xmi:id="_1j--YMWFEfG5EeAW0K4ErA" name="Старт" outgoing="_Gw-xsMWNEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:DecisionNode" xmi:id="_UQL7EMWIEfG5EeAW0K4ErA" name="Закінчення" incoming="_ra6tkMWOEfG5EeAW0K4ErA _9y58EMWPEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_GwEywMWNEfG5EeAW0K4ErA" name="Отримання відліку (8 сигналів)" incoming="_Gw-xsMWNEfG5EeAW0K4ErA" outgoing="_TQ0WgMWNEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_TQEIkMWNEfG5EeAW0K4ErA" name="Валідація та перевірка сигналів" incoming="_TQ0WgMWNEfG5EeAW0K4ErA" outgoing="_8_Kc4MWNEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:DecisionNode" xmi:id="_8-a2AMWNEfG5EeAW0K4ErA" name="ValidateData" incoming="_8_Kc4MWNEfG5EeAW0K4ErA" outgoing="_EQ5lIMWOEfG5EeAW0K4ErA _FUFgcMWOEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_EQRTAMWOEfG5EeAW0K4ErA" name="Оновлення стану двійника" incoming="_EQ5lIMWOEfG5EeAW0K4ErA" outgoing="_RRG2oMWPEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_FTit4MWOEfG5EeAW0K4ErA" name="Обробка помилки / Сповіщення" incoming="_FUFgcMWOEfG5EeAW0K4ErA" outgoing="_ra6tkMWOEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_RQd9cMWPEfG5EeAW0K4ErA" name="Збереження в DB" incoming="_RRG2oMWPEfG5EeAW0K4ErA" outgoing="_XE9EkMWPEfG5EeAW0K4ErA"/>
+      <node xmi:type="uml:AcceptEventAction" xmi:id="_XEXOsMWPEfG5EeAW0K4ErA" name="сповіщення інтерфейсу (UI)" incoming="_XE9EkMWPEfG5EeAW0K4ErA" outgoing="_9y58EMWPEfG5EeAW0K4ErA"/>
+    </packagedElement>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7TjAsMVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7TpHUMVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7WiDQMVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WiqUMVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//activities"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Activities"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7Wni0MVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WoJ4MVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//allocations"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Allocations"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7Wow8MVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Wow8cVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//blocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Blocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7Wow8sVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Wow88VuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//constraintblocks"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ConstraintBlocks"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7Wp_EMVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Wp_EcVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//deprecatedelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_DeprecatedElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7WqmIMVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WqmIcVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//modelelements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_ModelElements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7WrNMMVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7WrNMcVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//portsandflows"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Ports_u0026Flows"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7WrNMsVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Wr0QMVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/sysml/1.6/SysML#//requirements"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://SysML16_PROFILES/SysML.profile.uml#SysML.package_packagedElement_Requirements"/>
+    </profileApplication>
+    <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_7Wr0QcVuEfG5EeAW0K4ErA">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_7Wr0QsVuEfG5EeAW0K4ErA" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/uml2/5.0.0/UML/Profile/Standard#/"/>
+      </eAnnotations>
+      <appliedProfile xmi:type="uml:Profile" href="pathmap://UML_PROFILES/Standard.profile.uml#_0"/>
+    </profileApplication>
+  </uml:Model>
+  <Requirements:Requirement xmi:id="_KAdHwMV0EfG5EeAW0K4ErA" base_NamedElement="_KAOeQMV0EfG5EeAW0K4ErA" id="FR-01" text="Система повинна забезпечувати безперервне приймання та обробку пакетів телеметрії від програмного емулятора електроскутера для 8 визначених сигналів (SIG_VEL_01 — SIG_LCK_08)." base_Class="_KAOeQMV0EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_NL0bEMV1EfG5EeAW0K4ErA" base_NamedElement="_NLsfQMV1EfG5EeAW0K4ErA" id="FR-06" text="Система повинна забезпечувати формування та відправлення команд керування до емулятора електроскутера для зміни режимів обмеження максимальної швидкості (30, 40, 50 км/год) та активації захисного блокування." base_Class="_NLsfQMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_UAhpEMV1EfG5EeAW0K4ErA" base_NamedElement="_UAd-sMV1EfG5EeAW0K4ErA" id="NFR-05" text="У разі збою мережі платформа повинна фіксувати розрив і відновлювати синхронізацію з емулятором не довше ніж за 2 секунди після відновлення зв'язку." base_Class="_UAd-sMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_U0Z9EMV1EfG5EeAW0K4ErA" base_NamedElement="_U0UdgMV1EfG5EeAW0K4ErA" id="FR-02" text="Система повинна автоматично оновлювати віртуальний стан електроскутера в базі даних та інтерфейсі на основі кожної нової порції отриманих телеметричних даних." base_Class="_U0UdgMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_WAptwMV1EfG5EeAW0K4ErA" base_NamedElement="_WAnRgMV1EfG5EeAW0K4ErA" id="FR-03" text="Система повинна забезпечувати збереження поточних і дискретних подій з часовими мітками (Timestamp) для підтримки гарячого, теплого та холодного рівнів зберігання даних." base_Class="_WAnRgMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_XZa3gMV1EfG5EeAW0K4ErA" base_NamedElement="_XZYbQMV1EfG5EeAW0K4ErA" id="FR-05" text="Система повинна аналізувати вхідні потоки даних для раннього виявлення критичних відхилень (перегрів двигуна, критичний розряд АКБ) із генерацією відповідних сповіщень." base_Class="_XZYbQMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_dlsMgMV1EfG5EeAW0K4ErA" base_NamedElement="_dlpJMMV1EfG5EeAW0K4ErA" id="NFR-01" text="Затримка синхронізації стану (від відліку на джерелі до оновлення стану в API платформи) не перевищує 250 мс для 95% оновлень." base_Class="_dlpJMMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_eodREMV1EfG5EeAW0K4ErA" base_NamedElement="_eoXxgMV1EfG5EeAW0K4ErA" id="NFR-03" text="Зростання кількості сигналів з 8 до 80 не збільшує затримку синхронізації більш ніж на 30%." base_Class="_eoXxgMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_ff2MEMV1EfG5EeAW0K4ErA" base_NamedElement="_ffzIwMV1EfG5EeAW0K4ErA" id="NFR-04" text="Система повинна забезпечувати безперебійну обробку високочастотних сигналів (до 10 Гц) без втрати пакетів та стабільно обчислювати добовий обсяг даних (~15.34 МБ/добу)." base_Class="_ffzIwMV1EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_rwS_IMV3EfG5EeAW0K4ErA" base_NamedElement="_rvfG0MV3EfG5EeAW0K4ErA" id="FR-04" text="Інтерфейс користувача повинен відображати актуальні значення параметрів телеметрії, графіки зміни показників у реальному часі та графічне представлення стану компонентів об'єкта." base_Class="_rvfG0MV3EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_sk2BgMV3EfG5EeAW0K4ErA" base_NamedElement="_skwh8MV3EfG5EeAW0K4ErA" id="FR-07" text="Система повинна підтримувати розмежування доступу для різних зацікавлених сторін (водій, сервісний інженер, розробник/дослідник, системний адміністратор) згідно з їхніми правами." base_Class="_skwh8MV3EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_uN_woMV3EfG5EeAW0K4ErA" base_NamedElement="_uN300MV3EfG5EeAW0K4ErA" id="NFR-02" text="Наскрізна затримка відображення телеметрії в інтерфейсі користувача не перевищує 500 мс для 95% оновлень." base_Class="_uN300MV3EfG5EeAW0K4ErA"/>
+  <Requirements:Requirement xmi:id="_veERYMV3EfG5EeAW0K4ErA" base_NamedElement="_vdykkMV3EfG5EeAW0K4ErA" id="NFR-06" text="Канали передавання команд керування та телеметрії мають захищатися від несанкціонованого втручання засобами автентифікації, а журнали подій зберігатися у захищеному сховищі.&#xD;&#xA;&#xD;&#xA;Що тепер зроб" base_Class="_vdykkMV3EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_PDJr8MV8EfG5EeAW0K4ErA" base_Class="_PCVzoMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_RIMs4MV8EfG5EeAW0K4ErA" base_Class="_RIJpkMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_VT7tgMV8EfG5EeAW0K4ErA" base_Class="_VT4qMMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_V1DdkMV8EfG5EeAW0K4ErA" base_Class="_V1AaQMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_WN6CcMV8EfG5EeAW0K4ErA" base_Class="_WN2_IMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_WhPOIMV8EfG5EeAW0K4ErA" base_Class="_WhMx4MV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_W3GwcMV8EfG5EeAW0K4ErA" base_Class="_W3DtIMV8EfG5EeAW0K4ErA"/>
+  <Blocks:Block xmi:id="_XJWXAMV8EfG5EeAW0K4ErA" base_Class="_XJT6wMV8EfG5EeAW0K4ErA"/>
+</xmi:XMI>
