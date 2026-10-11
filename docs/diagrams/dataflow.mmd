@@ -1,0 +1,22 @@
+sequenceDiagram
+    autonumber
+    participant Scooter as Електроскутер / Емулятор
+    participant Gateway as Обробник телеметрії (DCE)
+    participant Backend as Серверна бізнес-логіка (DTE)
+    participant DB as База даних (Storage)
+    participant UI as Інтерфейс користувача (Unity)
+
+    Note over Scooter, UI: Послідовний маршрут та паралельні гілки
+
+    Scooter->>Gateway: 1. Сенсор → шлюз (оцифрування, буферизація) [40 мс]
+    Gateway->>Backend: 2. Шлюз → брокер (пакування, публікація MQTT) [60 мс]
+    Backend->>Backend: 3. Брокер → платформа (валідація, оновлення стану) [90 мс]
+
+    par Паралельна гілка: Запис у сховище
+        Backend->>DB: Запис у сховище часових рядів (історія) [120 мс]
+    and Паралельна гілка: Архівування команд
+        Backend->>DB: Архівування команд керування
+    end
+
+    Backend->>UI: 4. Платформа → інтерфейс (опитування API, відображення) [150 мс]
+    UI-->>Scooter: Відображення користувачу
