@@ -1,0 +1,27 @@
+graph TB
+    subgraph Edge ["Периферійний пристрій (Edge)"]
+        subgraph Scooter ["Електроскутер"]
+            emulator["Програмний емулятор / Бортовий контролер<br/>[Physical System / Python Agent]"]
+        end
+    end
+
+    subgraph Cloud ["Хмарна / Серверна інфраструктура (Cloud)"]
+        subgraph AppServer ["Сервер додатків (Backend)"]
+            gateway["Обробник телеметрії та Контролер команд<br/>(DCE Layer)"]
+            backend_core["Бізнес-логіка, Менеджер стану, Аналітика<br/>(DTE Layer)"]
+        end
+
+        subgraph Storage ["Сховище даних"]
+            db[("База даних / Time-series DB<br/>[Container: Database]")]
+        end
+
+        subgraph Client ["Клієнтський пристрій"]
+            ui["Інтерфейс користувача<br/>[Unity / Web Dashboard]"]
+        end
+    end
+
+    %% Мережеві взаємодії
+    emulator <-->|"MQTT / HTTPS (Телеметрія та Команди)"| gateway
+    gateway --> backend_core
+    backend_core --> db
+    ui <-->|"WebSocket / HTTPS (API стейту та команд)"| backend_core

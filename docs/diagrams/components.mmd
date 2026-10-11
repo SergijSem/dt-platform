@@ -1,0 +1,39 @@
+graph TB
+    user["Користувач<br/>[Person]"]
+
+    subgraph system ["Цифровий двійник електроскутера<br/>[Software System]"]
+        
+        subgraph backend ["Серверна частина цифрового двійника<br/>[Container: Backend]"]
+            ui["Інтерфейс користувача<br/>[Container: Unity]"]
+            
+            cmd_ctrl["Контролер команд<br/>[Component]"]
+            tel_handler["Обробник телеметрії<br/>[Component]"]
+            state_mgr["Менеджер стану<br/>[Component]"]
+            anal_mod["Аналітичний модуль<br/>[Component]"]
+            data_comp["Компонент роботи з даними<br/>[Component]"]
+        end
+
+        db[("База даних<br/>[Container: Database]")]
+    end
+
+    emulator["Електроскутер / програмний емулятор<br/>[Physical System]"]
+
+    %% Зв'язки
+    user -->|"Переглядає інформацію / змінює режим"| ui
+    ui -->|"Надсилає запити та команди"| cmd_ctrl
+    cmd_ctrl -->|"Команди керування"| emulator
+    emulator -->|"Телеметрія"| tel_handler
+    
+    tel_handler -->|"Передає перевірені дані"| state_mgr
+    state_mgr -->|"Передає оновлений стан"| data_comp
+    
+    ui -->|"Передає поточний стан"| state_mgr
+    ui -->|"Передає аналітику"| anal_mod
+    
+    anal_mod -->|"Результати для збереження"| data_comp
+    data_comp -->|"Історичні дані для аналізу"| anal_mod
+
+    %% Додано архівування команд
+    cmd_ctrl -->|"Архівування команд"| data_comp
+
+    data_comp -->|"Зчитує та записує дані"| db
