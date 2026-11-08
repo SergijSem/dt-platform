@@ -1,0 +1,34 @@
+classDiagram
+    direction LR
+
+    class Asset {
+        <<class>>
+    }
+    class Sensor {
+        <<class>>
+    }
+    class ObservableProperty {
+        <<class>>
+    }
+
+    class ScooterUnit {
+        <<class>>
+    }
+    class Motor {
+        <<class>>
+    }
+    class RpmSensor {
+        <<class>>
+    }
+    class MotorSpeed {
+        <<class>>
+    }
+
+    Asset <|.. ScooterUnit : realization
+    Asset <|.. Motor : realization
+    Sensor <|.. RpmSensor : realization
+    ObservableProperty <|.. MotorSpeed : realization
+
+    ScooterUnit --> Motor : hasPart
+    Motor --> RpmSensor : hasSensor
+    RpmSensor --> MotorSpeed : observes

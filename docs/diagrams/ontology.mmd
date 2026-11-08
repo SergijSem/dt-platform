@@ -1,0 +1,69 @@
+classDiagram
+    direction TB
+
+    class Asset {
+        +serialNo: string
+    }
+
+    class Sensor {
+        +samplingRate: decimal
+    }
+
+    class ObservableProperty
+
+    class ScooterUnit
+    class Motor
+    class Battery
+    class RunningGear
+    class BrakingSystem
+    class SecuritySystem
+
+    class SpeedSensor
+    class RpmSensor
+    class CurrentSensor
+    class VoltageSensor
+    class TemperatureSensor
+    class SoCSensor
+    class BrakeSensor
+    class LockSensor
+
+    class VehicleSpeed
+    class MotorSpeed
+    class BatteryCurrent
+    class BatteryVoltage
+    class MotorTemperature
+    class BatteryStateOfCharge
+    class BrakingState
+    class SecurityLockState
+
+    Asset <|-- ScooterUnit
+    Asset <|-- Motor
+    Asset <|-- Battery
+    Asset <|-- RunningGear
+    Asset <|-- BrakingSystem
+    Asset <|-- SecuritySystem
+
+    Sensor <|-- SpeedSensor
+    Sensor <|-- RpmSensor
+    Sensor <|-- CurrentSensor
+    Sensor <|-- VoltageSensor
+    Sensor <|-- TemperatureSensor
+    Sensor <|-- SoCSensor
+    Sensor <|-- BrakeSensor
+    Sensor <|-- LockSensor
+
+    ObservableProperty <|-- VehicleSpeed
+    ObservableProperty <|-- MotorSpeed
+    ObservableProperty <|-- BatteryCurrent
+    ObservableProperty <|-- BatteryVoltage
+    ObservableProperty <|-- MotorTemperature
+    ObservableProperty <|-- BatteryStateOfCharge
+    ObservableProperty <|-- BrakingState
+    ObservableProperty <|-- SecurityLockState
+
+    ScooterUnit "1" --> "0..*" Asset : hasPart
+    Asset "1" --> "0..*" Sensor : hasSensor
+    Sensor "1" --> "1" ObservableProperty : observes
+
+    note for Asset "hasPart is transitive; its inverse is partOf."
+    note for ObservableProperty "Asset, Sensor and ObservableProperty are pairwise disjoint."

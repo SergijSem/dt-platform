@@ -1,0 +1,17 @@
+{
+  "definition": "http://web/twin/scooter-unit-1.0.0.tm.jsonld",
+  "policyId": "org.pzks:scooter-1",
+  "attributes": {
+    "manufacturer": "Виробник електроскутера",
+    "serialNo": "SCOOTER-001"
+  },
+  "features": {
+    "battery": {
+      "properties": {
+        "current": 0.5,
+        "voltage": 48,
+        "stateOfCharge": 80
+      }
+    }
+  }
+}

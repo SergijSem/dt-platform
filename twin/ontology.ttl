@@ -1,0 +1,329 @@
+@prefix : <http://example.org/scooter#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://example.org/scooter#> .
+
+<http://example.org/scooter> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://example.org/scooter#hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :partOf ;
+         rdf:type owl:TransitiveProperty ;
+         rdfs:domain :Asset ;
+         rdfs:range :Asset .
+
+
+###  http://example.org/scooter#hasSensor
+:hasSensor rdf:type owl:ObjectProperty ;
+           rdfs:domain :Asset ;
+           rdfs:range :Sensor .
+
+
+###  http://example.org/scooter#observes
+:observes rdf:type owl:ObjectProperty ;
+          rdfs:domain :Sensor ;
+          rdfs:range :ObservableProperty .
+
+
+###  http://example.org/scooter#partOf
+:partOf rdf:type owl:ObjectProperty ;
+        rdfs:domain :Asset ;
+        rdfs:range :Asset .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://example.org/scooter#samplingRate
+:samplingRate rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:domain :Sensor ;
+              rdfs:range xsd:decimal .
+
+
+###  http://example.org/scooter#serialNo
+:serialNo rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Asset ;
+          rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://example.org/scooter#Asset
+:Asset rdf:type owl:Class ;
+       owl:disjointWith :ObservableProperty ,
+                        :Sensor .
+
+
+###  http://example.org/scooter#Battery
+:Battery rdf:type owl:Class ;
+         rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#BatteryCurrent
+:BatteryCurrent rdf:type owl:Class ;
+                rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#BatteryStateOfCharge
+:BatteryStateOfCharge rdf:type owl:Class ;
+                      rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#BatteryVoltage
+:BatteryVoltage rdf:type owl:Class ;
+                rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#BrakeSensor
+:BrakeSensor rdf:type owl:Class ;
+             rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#BrakingState
+:BrakingState rdf:type owl:Class ;
+              rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#BrakingSystem
+:BrakingSystem rdf:type owl:Class ;
+               rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#CurrentSensor
+:CurrentSensor rdf:type owl:Class ;
+               rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#LockSensor
+:LockSensor rdf:type owl:Class ;
+            rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#Motor
+:Motor rdf:type owl:Class ;
+       rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#MotorSpeed
+:MotorSpeed rdf:type owl:Class ;
+            rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#MotorTemperature
+:MotorTemperature rdf:type owl:Class ;
+                  rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#ObservableProperty
+:ObservableProperty rdf:type owl:Class ;
+                    owl:disjointWith :Sensor .
+
+
+###  http://example.org/scooter#RpmSensor
+:RpmSensor rdf:type owl:Class ;
+           rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#RunningGear
+:RunningGear rdf:type owl:Class ;
+             rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#ScooterUnit
+:ScooterUnit rdf:type owl:Class ;
+             rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#SecurityLockState
+:SecurityLockState rdf:type owl:Class ;
+                   rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#SecuritySystem
+:SecuritySystem rdf:type owl:Class ;
+                rdfs:subClassOf :Asset .
+
+
+###  http://example.org/scooter#Sensor
+:Sensor rdf:type owl:Class .
+
+
+###  http://example.org/scooter#SoCSensor
+:SoCSensor rdf:type owl:Class ;
+           rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#SpeedSensor
+:SpeedSensor rdf:type owl:Class ;
+             rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#TemperatureSensor
+:TemperatureSensor rdf:type owl:Class ;
+                   rdfs:subClassOf :Sensor .
+
+
+###  http://example.org/scooter#VehicleSpeed
+:VehicleSpeed rdf:type owl:Class ;
+              rdfs:subClassOf :ObservableProperty .
+
+
+###  http://example.org/scooter#VoltageSensor
+:VoltageSensor rdf:type owl:Class ;
+               rdfs:subClassOf :Sensor .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://example.org/scooter#battery-1
+:battery-1 rdf:type owl:NamedIndividual ,
+                    :Battery ;
+           :hasSensor :current-sensor-1 ,
+                      :soc-sensor-1 ,
+                      :voltage-sensor-1 .
+
+
+###  http://example.org/scooter#battery-current-1
+:battery-current-1 rdf:type owl:NamedIndividual ,
+                            :BatteryCurrent .
+
+
+###  http://example.org/scooter#battery-soc-1
+:battery-soc-1 rdf:type owl:NamedIndividual ,
+                        :BatteryStateOfCharge .
+
+
+###  http://example.org/scooter#battery-voltage-1
+:battery-voltage-1 rdf:type owl:NamedIndividual ,
+                            :BatteryVoltage .
+
+
+###  http://example.org/scooter#brake-sensor-1
+:brake-sensor-1 rdf:type owl:NamedIndividual ,
+                         :BrakeSensor ;
+                :observes :braking-state-1 .
+
+
+###  http://example.org/scooter#brakes-1
+:brakes-1 rdf:type owl:NamedIndividual ,
+                   :BrakingSystem ;
+          :hasSensor :brake-sensor-1 .
+
+
+###  http://example.org/scooter#braking-state-1
+:braking-state-1 rdf:type owl:NamedIndividual ,
+                          :BrakingState .
+
+
+###  http://example.org/scooter#current-sensor-1
+:current-sensor-1 rdf:type owl:NamedIndividual ,
+                           :CurrentSensor ;
+                  :observes :battery-current-1 ;
+                  :samplingRate 1 .
+
+
+###  http://example.org/scooter#lock-sensor-1
+:lock-sensor-1 rdf:type owl:NamedIndividual ,
+                        :LockSensor ;
+               :observes :security-lock-state-1 .
+
+
+###  http://example.org/scooter#motor-1
+:motor-1 rdf:type owl:NamedIndividual ,
+                  :Motor ;
+         :hasSensor :rpm-sensor-1 ,
+                    :temperature-sensor-1 .
+
+
+###  http://example.org/scooter#motor-speed-1
+:motor-speed-1 rdf:type owl:NamedIndividual ,
+                        :MotorSpeed .
+
+
+###  http://example.org/scooter#motor-temperature-1
+:motor-temperature-1 rdf:type owl:NamedIndividual ,
+                              :MotorTemperature .
+
+
+###  http://example.org/scooter#rpm-sensor-1
+:rpm-sensor-1 rdf:type owl:NamedIndividual ,
+                       :RpmSensor ;
+              :observes :motor-speed-1 ;
+              :samplingRate 10 .
+
+
+###  http://example.org/scooter#running-gear-1
+:running-gear-1 rdf:type owl:NamedIndividual ,
+                         :RunningGear .
+
+
+###  http://example.org/scooter#scooter-1
+:scooter-1 rdf:type owl:NamedIndividual ,
+                    :ScooterUnit ;
+           :hasPart :battery-1 ,
+                    :brakes-1 ,
+                    :motor-1 ,
+                    :running-gear-1 ,
+                    :security-1 ;
+           :hasSensor :speed-sensor-1 ;
+           :serialNo "SCOOTER-001" .
+
+
+###  http://example.org/scooter#security-1
+:security-1 rdf:type owl:NamedIndividual ,
+                     :SecuritySystem ;
+            :hasSensor :lock-sensor-1 .
+
+
+###  http://example.org/scooter#security-lock-state-1
+:security-lock-state-1 rdf:type owl:NamedIndividual ,
+                                :SecurityLockState .
+
+
+###  http://example.org/scooter#soc-sensor-1
+:soc-sensor-1 rdf:type owl:NamedIndividual ,
+                       :SoCSensor ;
+              :observes :battery-soc-1 ;
+              :samplingRate 0.1 .
+
+
+###  http://example.org/scooter#speed-sensor-1
+:speed-sensor-1 rdf:type owl:NamedIndividual ,
+                         :SpeedSensor ;
+                :observes :vehicle-speed-1 ;
+                :samplingRate 10 .
+
+
+###  http://example.org/scooter#temperature-sensor-1
+:temperature-sensor-1 rdf:type owl:NamedIndividual ,
+                               :TemperatureSensor ;
+                      :observes :motor-temperature-1 ;
+                      :samplingRate 0.1 .
+
+
+###  http://example.org/scooter#vehicle-speed-1
+:vehicle-speed-1 rdf:type owl:NamedIndividual ,
+                          :VehicleSpeed .
+
+
+###  http://example.org/scooter#voltage-sensor-1
+:voltage-sensor-1 rdf:type owl:NamedIndividual ,
+                           :VoltageSensor ;
+                  :observes :battery-voltage-1 ;
+                  :samplingRate 1 .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
