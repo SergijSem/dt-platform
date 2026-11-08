@@ -1,0 +1,54 @@
+# Платформа цифрового двійника: Eclipse Ditto + брокер + сховище + подання
+name: dt
+
+include:
+  - path:
+      - ./ditto/deployment/docker/docker-compose.yml
+      - ./ditto-override.yml
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports:
+      - "127.0.0.1:1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+
+  web:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      - nginx
+    ports:
+      - "127.0.0.1:8090:80"
+    volumes:
+      - ./web.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../twin:/usr/share/nginx/html/twin:ro
+      - ../ui:/usr/share/nginx/html/ui:ro
+
+  influxdb:
+    image: influxdb:2.9
+    ports:
+      - "127.0.0.1:8086:8086"
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: admin-2026
+      DOCKER_INFLUXDB_INIT_ORG: pzks
+      DOCKER_INFLUXDB_INIT_BUCKET: twin
+      DOCKER_INFLUXDB_INIT_RETENTION: 7d
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: dt-lab-token
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+
+  grafana:
+    image: grafana/grafana:13.0
+    ports:
+      - "127.0.0.1:3000:3000"
+    depends_on:
+      - influxdb
+    volumes:
+      - ./grafana:/etc/grafana/provisioning/datasources:ro
+
+volumes:
+  influxdb-data:

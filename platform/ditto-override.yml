@@ -1,0 +1,14 @@
+# Доповнення до docker-compose.yml Ditto (сам файл Ditto не змінюємо)
+services:
+  things: # дозволити завантаження моделей WoT із вебсервера web
+    environment:
+      - THINGS_WOT_THING_MODEL_HTTP_SECURITY_ALLOWED_HOSTNAMES=web
+
+  gateway: # шлюз — лише через nginx з автентифікацією
+    ports: !reset []
+
+  mongodb: # база даних — лише всередині мережі платформи
+    ports: !reset []
+
+  nginx: # API Ditto — лише з цього комп’ютера
+    ports: !override ["127.0.0.1:8080:80"]
