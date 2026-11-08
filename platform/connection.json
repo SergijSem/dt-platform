@@ -1,0 +1,31 @@
+{
+  "name": "mqtt-telemetry",
+  "connectionType": "mqtt",
+  "connectionStatus": "open",
+  "uri": "tcp://mosquitto:1883",
+  "failoverEnabled": true,
+  "sources": [
+    {
+      "addresses": [
+        "pzks/+/telemetry"
+      ],
+      "authorizationContext": [
+        "integration:telemetry"
+      ],
+      "qos": 1,
+      "payloadMapping": [
+        "telemetry"
+      ]
+    }
+  ],
+  "mappingDefinitions": {
+    "telemetry": {
+      "mappingEngine": "JavaScript",
+      "options": {
+        "incomingScript": "",
+        "loadBytebufferJS": "false",
+        "loadLongJS": "false"
+      }
+    }
+  }
+}

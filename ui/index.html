@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="uk">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Цифровий двійник електроскутера</title>
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            margin: 24px;
+            background: #f4f6f9;
+            color: #14202e;
+        }
+
+        h1 {
+            margin-bottom: 8px;
+        }
+
+        .status {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 12px 14px;
+            box-shadow: 0 1px 4px #00000012;
+        }
+
+        .name {
+            color: #5a6a7a;
+            font-size: 14px;
+        }
+
+        .value {
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .fresh { color: #1a7f37; }
+        .late { color: #b58100; }
+        .stale { color: #c62828; }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Електроскутер
+        <small id="thing"></small>
+    </h1>
+
+    <p class="status">
+        Давність даних: <b id="age">—</b> ·
+        повідомлення № <span id="seq">—</span>
+    </p>
+
+    <div class="grid" id="grid"></div>
+
+    <script>
+        const THING = "org.pzks:scooter-1";
+
+        // Функціональний блок, властивість, назва, одиниця вимірювання
+        const SIGNALS = [
+            ["runningGear", "speed", "Швидкість", "км/год"],
+            ["motor", "rpm", "Оберти двигуна", "об/хв"],
+            ["motor", "temperature", "Температура двигуна", "°C"],
+            ["battery", "current", "Струм батареї", "А"],
+            ["battery", "voltage", "Напруга батареї", "В"],
+            ["battery", "stateOfCharge", "Рівень заряду", "%"]
+        ];
+
+        const $ = id => document.getElementById(id);
+
+        // Час останнього вимірювання на джерелі, мс
+        let sourceTs = 0;
+
+        $("thing").textContent = THING;
+
+        // Створення карток для сигналів
+        for (const [f, p, name, unit] of SIGNALS) {
+            $("grid").insertAdjacentHTML(
+                "beforeend",
+                `<div class="card">
+                    <div class="name">${name}, ${unit}</div>
+                    <div class="value" id="${f}-${p}">—</div>
+                </div>`
+            );
+        }
+
+        // Оновлення останнього відомого стану
+        function apply(features) {
+            for (const [f, p] of SIGNALS) {
+                const v = features[f]?.properties?.[p];
+
+                if (v !== undefined && v !== null) {
+                    $(`${f}-${p}`).textContent =
+                        typeof v === "number" ? v.toFixed(2) : v;
+                }
+            }
+
+            const sync = features.sync?.properties;
+
+            if (sync) {
+                if (sync.ts !== undefined) {
+                    sourceTs = sync.ts;
+                }
+
+                if (sync.seq !== undefined) {
+                    $("seq").textContent = sync.seq;
+                }
+            }
+        }
+
+        // Отримання початкового стану через API Ditto
+        fetch(`/api/2/things/${THING}`)
+            .then(r => {
+                if (!r.ok) {
+                    throw new Error(`HTTP ${r.status}`);
+                }
+                return r.json();
+            })
+            .then(t => apply(t.features ?? {}))
+            .catch(err => console.error("Помилка отримання стану:", err));
+
+        // Отримання змін через SSE
+        const events = new EventSource(
+            `/api/2/things?ids=${THING}&fields=features`
+        );
+
+        events.onmessage = e => {
+            if (e.data) {
+                apply(JSON.parse(e.data).features ?? {});
+            }
+        };
+
+        events.onerror = () => {
+            console.warn("Помилка SSE-з'єднання");
+        };
+
+        // Оновлення давності даних кожні 250 мс
+        setInterval(() => {
+            if (!sourceTs) return;
+
+            const age = (Date.now() - sourceTs) / 1000;
+
+            $("age").textContent = `${age.toFixed(1)} с`;
+
+            if (age < 2) {
+                $("age").className = "fresh";
+            } else if (age < 10) {
+                $("age").className = "late";
+            } else {
+                $("age").className = "stale";
+            }
+        }, 250);
+    </script>
+</body>
+</html>
