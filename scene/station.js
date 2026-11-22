@@ -44,6 +44,10 @@ export async function loadStation(scene, opt = new Set(), renderer) {
     loader.setKTX2Loader(ktx2);
   }
 
+  // Завантаження приміщення
+  const hall = await loader.loadAsync('models/hall.glb');
+  scene.add(hall.scene);
+
   const suffix = opt.has('ktx2') ? '-ktx2' : '';
   const detail = opt.has('simp')
     ? `models/scooter-s${suffix}.glb`
