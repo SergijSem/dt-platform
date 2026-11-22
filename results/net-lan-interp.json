@@ -1,0 +1,12 @@
+{
+  "type": "report",
+  "profile": "lan",
+  "mode": "interp",
+  "d_int_ms": 51,
+  "rtt_p50_ms": 31,
+  "delay_p50_ms": 104,
+  "delay_p95_ms": 126,
+  "off_max_m": 0.002,
+  "starved_pct": 32.4,
+  "frames": 1477
+}

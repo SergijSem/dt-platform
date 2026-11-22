@@ -1,0 +1,19 @@
+{
+  "name": "dt-platform",
+  "version": "1.0.0",
+  "description": "Платформа призначена для оперативного моніторингу в реальному часі, збирання телеметричних даних (8 сигналів), збереження історії, аналізу стану, предиктивної аналітики та двостороннього керування режимами роботи електроскутера.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "ws": "^8.23.0"
+  }
+}

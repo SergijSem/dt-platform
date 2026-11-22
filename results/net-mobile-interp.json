@@ -1,0 +1,12 @@
+{
+  "type": "report",
+  "profile": "mobile",
+  "mode": "interp",
+  "d_int_ms": 130,
+  "rtt_p50_ms": 110,
+  "delay_p50_ms": 208,
+  "delay_p95_ms": 236,
+  "off_max_m": 0.002,
+  "starved_pct": 0.1,
+  "frames": 859
+}

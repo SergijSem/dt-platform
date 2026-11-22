@@ -12,12 +12,12 @@ export const opt = new Set(params.get('opt')?.split(',').filter(Boolean) ?? []);
 
 const useTiles = params.get('tiles') === '1';
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+export const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.setSize(innerWidth, innerHeight);
 document.body.append(renderer.domElement);
 
-const scene = new THREE.Scene();
+export const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xc9dbea);
 
 scene.add(new THREE.HemisphereLight(0xffffff, 0x556655, 2));
@@ -26,9 +26,10 @@ const sun = new THREE.DirectionalLight(0xffffff, 2);
 sun.position.set(30, 50, 20);
 scene.add(sun);
 
-const camera = new THREE.PerspectiveCamera(
+export const camera = new THREE.PerspectiveCamera(
   60, innerWidth / innerHeight, 0.01, 10000
 );
+export const hooks = [];
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -158,6 +159,8 @@ function frame(now) {
 
   controls.update();
 
+  for (const hook of hooks) hook();
+
   if (tiles) {
     camera.updateMatrixWorld();
     tiles.update();
@@ -204,3 +207,15 @@ addEventListener('resize', () => {
     tiles.setResolutionFromRenderer(camera, renderer);
   }
 });
+
+if (params.has('name')) {
+  const { initNetwork } = await import('./net.js');
+
+  initNetwork({
+    scene,
+    camera,
+    renderer,
+    hooks,
+    params
+  });
+}
