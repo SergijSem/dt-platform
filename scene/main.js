@@ -5,6 +5,7 @@ import { ReorientationPlugin } from '3d-tiles-renderer/three/plugins';
 
 import { loadStation } from './station.js';
 import { bindTwin } from './twin.js';
+import { createBench } from './bench.js';
 
 export const params = new URLSearchParams(location.search);
 export const opt = new Set(params.get('opt')?.split(',').filter(Boolean) ?? []);
@@ -32,11 +33,13 @@ const camera = new THREE.PerspectiveCamera(
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 
-
-
-const station = await loadStation(scene);
+const station = await loadStation(scene, opt, renderer);
 const s = station.maxSize;
+
+if (useTiles) {
 station.lod.position.y += 1.38;
+}
+
 
 // Види для звичайного перегляду електроскутера.
 const scooterViews = {
@@ -91,7 +94,7 @@ if (useTiles) {
   tiles.lruCache.minBytesSize = 24 * 1024 * 1024;
 
   // Тайлсет розміщений нижче моделі електроскутера.
-  tiles.group.position.y = 0;
+  tiles.group.position.y = -1.38;
 
   tiles.setCamera(camera);
   tiles.setResolutionFromRenderer(camera, renderer);
@@ -136,9 +139,23 @@ window.__sceneStats = () => {
 window.__tiles = tiles;
 window.__sceneStatsReady = true;
 
+const bench = params.has('bench')
+  ? createBench({
+      renderer,
+      camera,
+      controls,
+      scene,
+      duration: Number(params.get('bench')) || 30
+    })
+  : null;
+
 const stats = document.getElementById('stats');
 
-function frame() {
+function frame(now) {
+  bench?.beforeFrame(now);
+
+  const cpuStart = performance.now();
+
   controls.update();
 
   if (tiles) {
@@ -146,7 +163,18 @@ function frame() {
     tiles.update();
   }
 
+  bench?.beginRender();
   renderer.render(scene, camera);
+
+  if (!window.__deferStarted && opt.has('defer')) {
+    window.__deferStarted = true;
+
+    station.afterFirstFrame().catch((error) => {
+      console.error('Помилка відкладеного завантаження:', error);
+    });
+  }
+  const cpuMs = performance.now() - cpuStart;
+  bench?.endRender(cpuMs);
 
   const info = renderer.info.render;
 
@@ -166,6 +194,8 @@ function frame() {
 renderer.setAnimationLoop(frame);
 
 addEventListener('resize', () => {
+  if (bench) return;
+
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);

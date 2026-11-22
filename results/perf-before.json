@@ -1,0 +1,52 @@
+{
+  "label": "before",
+  "device": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36",
+  "resolution": "1920x1080",
+  "cpuThrottling": "6x (налаштовується в DevTools)",
+  "warmupSeconds": 3,
+  "durationSeconds": 30,
+  "gpuTimerSupported": true,
+  "frames": 1774,
+  "frameIntervalMs": {
+    "p50": 16.7,
+    "p99": 17.2,
+    "min": 0,
+    "max": 233.2
+  },
+  "cpuMs": {
+    "p50": 0.5,
+    "p99": 1.4,
+    "min": 0.1,
+    "max": 157.6
+  },
+  "gpuMs": {
+    "p50": 0.03,
+    "p99": 0.95,
+    "min": 0.02,
+    "max": 397.15
+  },
+  "in_budget_pct": 99.94,
+  "calls": {
+    "p50": 2,
+    "p99": 11,
+    "min": 1,
+    "max": 11
+  },
+  "triangles": {
+    "p50": 12,
+    "p99": 2920,
+    "min": 0,
+    "max": 2920
+  },
+  "textures": {
+    "count": 19,
+    "bytes": 425022805.3333332,
+    "mb": 405.33
+  },
+  "data_first_frame": {
+    "requests": 21,
+    "bytes": 17831923,
+    "mb": 17.01
+  },
+  "notes": "GPU-час отримано через EXT_disjoint_timer_query_webgl2."
+}
