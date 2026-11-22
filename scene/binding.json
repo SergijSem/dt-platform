@@ -1,0 +1,79 @@
+{
+  "thing": "org.pzks:scooter-1",
+  "unit": "scooter-1",
+  "bindings": [
+    {
+      "node": "battery",
+      "feature": "battery",
+      "property": "current",
+      "title": "Струм батареї",
+      "unit": "А",
+      "min": 0,
+      "max": 50
+    },
+    {
+      "node": "battery",
+      "feature": "battery",
+      "property": "voltage",
+      "title": "Напруга батареї",
+      "unit": "В",
+      "min": 36,
+      "max": 54.6
+    },
+    {
+      "node": "battery",
+      "feature": "battery",
+      "property": "stateOfCharge",
+      "title": "Заряд батареї",
+      "unit": "%",
+      "min": 0,
+      "max": 100,
+      "color": true
+    },
+    {
+      "node": "motor",
+      "feature": "motor",
+      "property": "rpm",
+      "title": "Обертів двигуна",
+      "unit": "об/хв",
+      "min": 0,
+      "max": 3000
+    },
+    {
+      "node": "motor",
+      "feature": "motor",
+      "property": "temperature",
+      "title": "Температура двигуна",
+      "unit": "°C",
+      "min": -20,
+      "max": 120,
+      "color": true
+    },
+    {
+      "node": "runningGear",
+      "feature": "runningGear",
+      "property": "speed",
+      "title": "Швидкість",
+      "unit": "км/год",
+      "min": 0,
+      "max": 60,
+      "color": true
+    },
+    {
+      "node": "brakes",
+      "feature": "brakes",
+      "property": "active",
+      "title": "Гальма",
+      "unit": "",
+      "type": "boolean"
+    },
+    {
+      "node": "security",
+      "feature": "security",
+      "property": "locked",
+      "title": "Блокування",
+      "unit": "",
+      "type": "boolean"
+    }
+  ]
+}

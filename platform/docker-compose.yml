@@ -25,6 +25,7 @@ services:
       - ./web.conf:/etc/nginx/conf.d/default.conf:ro
       - ../twin:/usr/share/nginx/html/twin:ro
       - ../ui:/usr/share/nginx/html/ui:ro
+      - ../scene:/usr/share/nginx/html/scene:ro
 
   influxdb:
     image: influxdb:2.9

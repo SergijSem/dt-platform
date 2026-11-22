@@ -21,12 +21,15 @@ import paho.mqtt.client as mqtt
 BROKER, PORT = "localhost", 1883
 
 
-def sample(t, elapsed):
+def sample(t, elapsed, previous_speed):
     """Один відлік усіх сигналів електроскутера у форматі пристрою."""
 
     # Імітація зміни швидкості під час руху.
     speed = max(0.0, min(50.0,
                          25 + 20 * math.sin(2 * math.pi * t / 60)))
+    
+    # Гальма активні, якщо швидкість помітно зменшується.
+    braking = speed < previous_speed - 0.1
 
     # Оберти двигуна залежать від швидкості.
     rpm = max(0, min(3000, int(speed * 55 + random.gauss(0, 20))))
@@ -54,7 +57,7 @@ def sample(t, elapsed):
         "u": round(voltage, 2),
         "temp": round(temperature, 2),
         "soc": round(soc, 2),
-        "brk": random.random() < 0.05,
+        "brk": braking,
         "lck": False
     }
 
@@ -107,6 +110,7 @@ def main():
     seq = 0
     next_time = time.time()
     start_time = time.time()
+    previous_speed = 0.0
 
     # Підготовка CSV-файлу.
     output_path = Path("results/source.csv")
@@ -127,8 +131,9 @@ def main():
                 msg = {
                     "seq": seq,
                     "ts": int(now * 1000),
-                    **sample(now, now - start_time)
+                    **sample(now, now - start_time, previous_speed)
                 }
+                previous_speed = msg["v"]
 
                 payload = json.dumps(msg, ensure_ascii=False)
 

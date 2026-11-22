@@ -1,0 +1,7 @@
+﻿view;culling;calls;triangles;lodLevel;frustumCulled
+near;так;11;2920;0;true
+near;ні;11;2920;0;false
+hall;так;2;12;2;true
+hall;ні;2;12;2;false
+far;так;1;0;3;true
+far;ні;1;0;3;false
